@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Study Companionship</title>
+        <meta charset="${_response_encoding}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}">
+        </script>
+        <script src="@{'/public/javascripts/jssor.slider.min.js'}" type="text/javascript"></script>
+    	<script>
+			jQuery(document).ready(function($) {
+			var options = {
+				$AutoPlay : true
+			};
+			var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+			});
+		</script>    
+    </head>
+    
+    <body>
+    <div id="header" style="margin-top: 10px;">
+	    <div id="left" style="margin-left:18px;">
+	    		<img u="image" src="@{'/public/images/studycompanion_.gif'}" />
+	    	</div>
+	    	<div id="right" style="margin-top: -25px; margin-left:824px;">
+	    		<a href="@{Register.register()}" class="btn btn-primary btn-lg"> Sign In/ Register </a> 
+			</div>
+	</div>
+    <div id="body" style="margin-top: 10px;">
+    	<div id="slider1_container" style="position: relative; top: 0px; left: 80px; width: 900px; height: 300px; margin-left: 59px;">
+			<!-- Slides Container -->
+			<div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 900px; height: 300px;">
+				<div>
+					<img u="image" src="@{'/public/images/index.jpeg'}" />
+				</div>
+				<div>
+					<img u="image" src="@{'/public/images/index1.jpeg'}" />
+				</div>
+				<div>
+					<img u="image" src="@{'/public/images/index2.jpeg'}" />
+				</div>
+				<div>
+					<img u="image" src="@{'/public/images/index3.jpeg'}" />
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    <div id="footer" style="margin-top: 40px;">
+    	<div id="container" style="position:relative; margin-left: 198px;width:900px;">
+    		<div id="left">
+    			<div>
+    				<img u="image" src="@{'/public/images/bino_.png'}" />
+				</div>
+    			<h3>Find</h3>
+    				<p style="font-family: serif;font-size: medium;font-style: oblique;">
+    					Short description about <br/>
+    					finding a Study Companionship
+    				</p>
+    		</div>
+    		<div id="middle">
+    			<div>
+    				<img u="image" src="@{'/public/images/Connect_.jpg'}" />
+				</div>
+    			<h3>Connect</h3>
+    			<p style="font-family: serif;font-size: medium;font-style: oblique;">
+    					Short description about <br/>
+    					finding a Study Companionship
+    			</p>
+    		</div>
+    		<div id="right">
+    			<div>
+    				<img u="image" src="@{'/public/images/correct_.png'}" />
+				</div>
+    			<h3>Succeed</h3>
+    			<p style="font-family: serif;font-size: medium;font-style: oblique;">
+    					Short description about <br/>
+    					finding a Study Companionship
+    			</p>
+    		</div>
+    	</div>
+    </div>
+	</body>
+</html>

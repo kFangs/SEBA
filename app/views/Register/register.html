@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Study Companionship</title>
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
+    </head>
+	<body>
+		<div style="background-color: white; margin-left: 240px;margin-right: 240px;">
+			<div style="margin-left: 324px; margin-top: 70px;">
+				<img u="image" src="@{'/public/images/studycompanion_.gif'}" />
+				<font style="font-size: large; margin-left: 10px;padding-top: 10px;">LOGIN</font>
+			</div>
+			<div style="margin-top: -62px; margin-left: -130px;margin-right: -100px;">
+				<div id="left" style="margin-left:190px;">
+					<div class="wrapper">
+					#{form @login(), id:'formLogin', class:'form-signin'}
+						<!-- <form class="form-signin"> -->
+							<h3 class="form-signin-heading">User Login</h3>
+							<input type="text" value="" class="form-control" name="email" placeholder="Email Address" required="required" />
+							<input type="password" class="form-control" name="password" placeholder="Password" required="required" /> 
+							<p style="font-style: italic;color: blue;">
+								<input type="checkbox" value="remember-me" id="termsandcondition" name="rememberMe" checked="checked">
+								Remember me
+							</p>
+							<button class="btn btn-primary" type="submit">Login</button>
+							<button class="btn btn-primary" type="submit">Need Help?</button>
+							<p style="margin-top: 10px; font-size: 13pt; font-style: italic;">
+								<a href="">I forgot my password</a>
+							</p>
+						<!-- </form> -->
+						 #{/form}
+					</div>
+				</div>
+				<div id="right" style="margin-right:19px;">
+					<div class="wrapper">
+						#{form @registerUser(), id:'formRegisterUser', class:'form-signin'}
+							<h3 class="form-signin-heading">Create Account</h3>
+							#{field 'RegisterUser.firstName'}
+							<input type="text" value ="${registerUser?.firstName}" name="registerUser.firstName" class="input-small" placeholder="First Name" required="required">
+							#{/field}
+							#{field 'RegisterUser.lastName'}
+							<input type="text" value ="${registerUser?.lastName}" name="registerUser.lastName" class="input-small" placeholder="Last Name" required="required">
+							#{/field}
+							#{field 'RegisterUser.password'}
+							<input type="password" value ="" name="registerUser.password" class="input-small" placeholder="Password" required="required">
+							#{/field}
+							#{field 'RegisterUser.repeatPassword'}
+							<input type="password" value ="" name="registerUser.repeatPassword" class="input-small" placeholder="Repeat Pwd" required="required">
+							#{/field}
+							#{field 'RegisterUser.email'}
+							<input type="text" value ="${registerUser?.email}" name="registerUser.email" placeholder="Email-Address (@mytum.de)" required="required" />
+							#{/field}
+							<p>
+								<select name="Studies" style="width:100px;">
+									<option>Studies</option>
+									<option selected="selected" value="">English</option>
+									<option value="">German</option>
+								</select>
+							    <select name="Language" style="width:100px;">
+									<option>Language</option>
+									<option value="English" selected="selected">English</option>
+									<option value="German">German</option>
+								</select>
+							</p>
+							<p style="font-style: italic;color: blue;">
+								<input type="checkbox" value="remember-me" id="termsandcondition" name="rememberMe" checked="checked">
+									<u>I have read the terms of service</u>
+							</p>
+							<button class="btn btn-primary" type="submit">Submit</button>
+						#{/form}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
