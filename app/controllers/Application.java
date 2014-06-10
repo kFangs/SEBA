@@ -12,4 +12,9 @@ public class Application extends Controller {
     public static void index() {
         render();
     }
+    
+    public static void logout() {
+    	session.clear();
+        index();
+    }
 }

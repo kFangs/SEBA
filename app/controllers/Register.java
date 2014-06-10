@@ -10,23 +10,24 @@ package controllers;
 
 import models.RegisterUser;
 import play.data.validation.Valid;
+import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.Scope.Flash;
+import utils.GerogianCalender;
+import utils.SEBAUtils;
 
 public class Register extends Controller {
 	
-	public static void register() {
-        render();
+	@Before
+    static void addUser() {
+        RegisterUser user = connected();
+        if(user != null) {
+            renderArgs.put("user", user);
+        }
     }
 	
-	public static void index() {
-        /*if(connected() != null) {
-            Profile.index();
-        }*/
-        register();
-    }
-	
-	/*static RegisterUser connected() {
-        if(renderArgs.get("registerUser") != null) {
+	static RegisterUser connected() {
+        if(renderArgs.get("user") != null) {
             return renderArgs.get("user", RegisterUser.class);
         }
         String email = session.get("email");
@@ -34,7 +35,19 @@ public class Register extends Controller {
             return RegisterUser.find("byEmail", email).first();
         } 
         return null;
-    }*/
+    }
+	
+	public static void register() {
+		GerogianCalender calendar = new GerogianCalender();
+		renderArgs.put("year", calendar.getYears());
+		renderArgs.put("month", calendar.getMonths());
+		renderArgs.put("day", calendar.getDays());
+		render();
+    }
+	
+	public static void index() {
+        register();
+    }
 	
 	/**
 	 * A method that controls the login form
@@ -42,19 +55,13 @@ public class Register extends Controller {
 	 * @param password
 	 */
 	public static void login(String email, String password) {
-		System.out.println("In Login Method");
-		System.out.println("Email	 =: " + email);
-    	System.out.println("Password =: " + password);
 		RegisterUser registerUser = RegisterUser.find("byEmailAndPassword",email, password).first();
-		System.out.println("In Login, registerUser: " + registerUser);
 		if (registerUser != null) {
-			session.put("firstName", registerUser.getFirstName());
-			flash.success("Welcome, " + registerUser.getFirstName());
+			session.put("email", registerUser.getEmail());
+			flash.success("Welcome, " + registerUser.getFirstName(), registerUser);
 			Profile.index();
 		}
-
-//		flash.put("email", registerUser.getEmail());
-//		flash.error("Login failed");
+		flash.error("Login failed...Incorrect Username or Password" , registerUser);
 		index();
 	}
 	
@@ -64,13 +71,16 @@ public class Register extends Controller {
 	 */
 	public static void registerUser(@Valid RegisterUser registerUser) {
 		validation.required(registerUser.getRepeatPassword());
-        validation.equals(registerUser.getRepeatPassword(), registerUser.getPassword()).message("Your password doesn't match");
+		validation.equals(registerUser.getRepeatPassword(), registerUser.getPassword()).message("Your password doesn't match");
         if(validation.hasErrors()) {
+        	flash.error("Invalid username or password...", registerUser);
             render("@register", registerUser, registerUser.getRepeatPassword());
         }
         try {
-			// registering the user in the database
+        	// registering the user in the database
 			registerUser.create();
+			session.put("email", registerUser.getEmail());
+	        flash.success("Welcome, " + registerUser.getFirstName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			renderJSON("{\"error\": true, \"message\": \"Registration failed! Something went wrong.\"}");
@@ -78,6 +88,6 @@ public class Register extends Controller {
 		session.put("email", registerUser.getEmail());
 		session.put("registerUser", registerUser);
         flash.success("Welcome, " + registerUser.getFirstName());
-        Profile.index();
+        Profile.completeProfile();
 	}
 }

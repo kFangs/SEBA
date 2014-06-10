@@ -1,121 +1,193 @@
-.button{ 
-	display: inline-block; 
-	padding:10px; margin:px; 
-	text-decoration:none; color:#fff; 
-	font-family:verdana;
-	} 
-	
-.green { 
-	background:#00a;
-	} 
-	
-.blue { 
-	background:#0a0;
+.button {
+	display: inline-block;
+	padding: 10px;
+	margin: px;
+	text-decoration: none;
+	color: #fff;
+	font-family: verdana;
 }
+
+.green {
+	background: #00a;
+}
+
+.blue {
+	background: #0a0;
+}
+
+#bgImage{
+	background: #A4A4A4 url(/images/backgroundImage.jpg) repeat-x;
+	background-color: #FAF7F5
+}
+
 #container {
-	height: 100%; width:100%; font-size: 0;
-	}
-#left, #middle, #right {
-	display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;text-align: center;
-	}
+	height: 100%;
+	width: 100%;
+	font-size: 0;
+}
+
+#left,#middle,#right {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top;
+	font-size: 12px;
+	text-align: center;
+}
+
 #left {
 	width: 33%;
-	}
+}
+
 #middle {
 	width: 33%;
-	}
+}
+
 #right {
 	width: 33%;
 }
 
 body {
-	background: #eee !important;	
+	background: #eee !important;
 }
 
-.wrapper {	
+.wrapper {
 	margin-top: 80px;
-  	margin-bottom: 80px;
+	margin-bottom: 80px;
 }
 
 .form-signin {
-  max-width: 380px;
-  height: 300px;
-  padding: 15px 35px 20px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
+	max-width: 380px;
+	height: 300px;
+	padding: 15px 35px 90px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	.
+	form-signin-heading
+	,
+	.checkbox
+	{
+	margin-bottom
+	:
+	30px;
+}
 
-  .form-signin-heading,
-	.checkbox {
-	  margin-bottom: 30px;
-	}
+.checkbox {
+	font-weight: normal;
+}
 
-	.checkbox {
-	  font-weight: normal;
-	}
+.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	@
+	include
+	box-sizing(border-box);
+	&:
+	focus
+	{
+	z-index
+	:
+	2;
+}
 
-	.form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-		@include box-sizing(border-box);
-
-		&:focus {
-		  z-index: 2;
-		}
-	}
-	
-	body{
-    background: #FFFFFF;
+}
+body {
+	background: #FFFFFF;
 }
 
 #container {
-    width: 800px;
-    margin:auto;
+	width: 800px;
+	margin: auto;
 }
 
 #header {
-    width: 800px;
-    height: 260px;
-    margin:auto;
-    overflow: hidden;
-    text-align:center; 
+	width: 800px;
+	height: 260px;
+	margin: auto;
+	overflow: hidden;
+	text-align: center;
 }
 
 #wrapper {
-    width: 800px;
-    margin: auto;
-    margin-top: 80px;
+	width: 800px;
+	margin: auto;
+	margin-top: 80px;
 }
 
 #slogan {
-    margin:auto;
-    text-align: center;
-    border:2px solid;
+	margin: auto;
+	text-align: center;
+	border: 2px solid;
 }
-.main{
-    background:#efefef;
-    overflow:hidden;
-}
-#login { 
-    width: 396px;
-    height:200px;
-    float: left;
-    border:2px solid;
-    text-align:center;        
 
+.main {
+	background: #efefef;
+	overflow: hidden;
 }
+
+#login {
+	width: 396px;
+	height: 200px;
+	float: left;
+	border: 2px solid;
+	text-align: center;
+}
+
 #register {
-    width: 396px;
-    height:200px;
-    border:2px solid;
-    text-align: center;
-    vertical-align: middle;
-    float:left;
+	width: 396px;
+	height: 200px;
+	border: 2px solid;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
 }
 
+span.customStyleSelectBox {
+	font-size: 11px;
+	background-color: #f5f0de;
+	color: #7c7c7c;
+	padding: 5px 7px;
+	border: 1px solid #e7dab0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px 5px;
+	line-height: 11px;
+	width: 89px;
+}
 
+span.customStyleSelectBox.changed {
+	background-color: #f0dea4;
+}
 
+.customStyleSelectBoxInner {
+	background: url(images/arrow.gif) no-repeat center right;
+}
 
+.icon-zoom-in {
+	position: relative;
+	left: 23px;
+	top: -8px;
+	z-index: 999;
+}
 
+.input-append input {
+	height: 30px;
+	padding-left: 25px;
+}
+
+.fError, .fSuccess {
+    text-align: center;
+    position: relative;
+    top: -10px;
+}
+
+.fError {
+    color: #c00;
+}
+
+.fSuccess {
+    color: #0c0;
+}

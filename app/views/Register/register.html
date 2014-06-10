@@ -7,30 +7,45 @@
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
     </head>
 	<body>
-		<div style="background-color: white; margin-left: 240px;margin-right: 240px;">
-			<div style="margin-left: 324px; margin-top: 70px;">
-				<img u="image" src="@{'/public/images/studycompanion_.gif'}" />
-				<font style="font-size: large; margin-left: 10px;padding-top: 10px;">LOGIN</font>
+		<div id="header">
+			<div>
+				<a href="@{Application.index()}" style="padding-left: 1000px;">Go Back</a>
 			</div>
+			<div>
+				<div style="margin-left: 324px; margin-top: 70px;">
+					<img width="62px;" style="padding-left: 238px;" src="@{'/public/images/studycompanion_.gif'}" />
+					<font style="font-size: large; margin-left: 10px;padding-top: 10px;">LOGIN</font>
+				</div>
+			</div>
+		</div>
+		<div id="body" style="background-color: white; margin-left: 240px;margin-right: 240px;">
 			<div style="margin-top: -62px; margin-left: -130px;margin-right: -100px;">
 				<div id="left" style="margin-left:190px;">
 					<div class="wrapper">
 					#{form @login(), id:'formLogin', class:'form-signin'}
-						<!-- <form class="form-signin"> -->
-							<h3 class="form-signin-heading">User Login</h3>
-							<input type="text" value="" class="form-control" name="email" placeholder="Email Address" required="required" />
-							<input type="password" class="form-control" name="password" placeholder="Password" required="required" /> 
-							<p style="font-style: italic;color: blue;">
-								<input type="checkbox" value="remember-me" id="termsandcondition" name="rememberMe" checked="checked">
-								Remember me
+						<h3 class="form-signin-heading">User Login</h3>
+							<div style="width: 300px; height: 20px;">
+							#{if flash.error}
+							<p class="fError">
+								<strong>${flash.error}</strong>
 							</p>
-							<button class="btn btn-primary" type="submit">Login</button>
-							<button class="btn btn-primary" type="submit">Need Help?</button>
-							<p style="margin-top: 10px; font-size: 13pt; font-style: italic;">
-								<a href="">I forgot my password</a>
+							#{/if} #{if flash.success}
+							<p class="fSuccess">
+								<strong>${flash.success}</strong>
 							</p>
-						<!-- </form> -->
-						 #{/form}
+							#{/if}
+						</div>
+						<input type="text" value="" class="form-control" name="email" placeholder="Email Address" required="required" />
+						<input type="password" class="form-control" name="password" placeholder="Password" required="required" /> 
+						<p style="font-style: italic;color: gray; font-size: medium;">
+							<input type="checkbox" value="remember-me" id="termsandcondition" name="rememberMe" checked="checked">
+							Keep me logged in
+						</p>
+						<button class="btn btn-success btn-large" type="submit">Login</button>
+						<p style="margin-top: 10px; font-size: 15pt; font-style: italic;">
+							<a href="">I forgot my password</a>
+						</p>
+					#{/form}
 					</div>
 				</div>
 				<div id="right" style="margin-right:19px;">
@@ -47,28 +62,31 @@
 							<input type="password" value ="" name="registerUser.password" class="input-small" placeholder="Password" required="required">
 							#{/field}
 							#{field 'RegisterUser.repeatPassword'}
-							<input type="password" value ="" name="registerUser.repeatPassword" class="input-small" placeholder="Repeat Pwd" required="required">
+							<input type="password" value ="" name="registerUser.repeatPassword" class="input-small" placeholder="Repeat password" required="required">
 							#{/field}
 							#{field 'RegisterUser.email'}
 							<input type="text" value ="${registerUser?.email}" name="registerUser.email" placeholder="Email-Address (@mytum.de)" required="required" />
 							#{/field}
-							<p>
-								<select name="Studies" style="width:100px;">
-									<option>Studies</option>
-									<option selected="selected" value="">English</option>
-									<option value="">German</option>
-								</select>
-							    <select name="Language" style="width:100px;">
-									<option>Language</option>
-									<option value="English" selected="selected">English</option>
-									<option value="German">German</option>
-								</select>
+							#{field 'RegisterUser.sex'}
+							<div style="height: 30px;font-family: sans-serif;font-size: large;">
+								<input type="radio" name="registerUser.sex" value="M">&nbsp;Male &nbsp;&nbsp; 
+								<input type="radio" name="registerUser.sex" value="F">&nbsp;Female&nbsp;&nbsp;
+								<input type="radio" name="registerUser.sex" value="O">&nbsp;Other
+							</div>
+							#{/field}
+							#{field 'RegisterUser.dateOfBirth'}
+							<div id="birthdayDiv" >
+								<font style="font-family: sans-serif;font-size: medium; font-weight: normal; text-align: left;">BirthDay</font>
+								<br />
+								#{ select 'registerUser.dateOfBirth', items:day /}
+								#{ select 'registerUser.dateOfBirth', items:month /}
+								#{ select 'registerUser.dateOfBirth', items:year /}
+							</div>
+							#{/field}
+							<p style="font-style: normal;font-weight: bold;">
+									By clicking Sign Up, you agree to our Terms and that you have read our Data Use Policy.
 							</p>
-							<p style="font-style: italic;color: blue;">
-								<input type="checkbox" value="remember-me" id="termsandcondition" name="rememberMe" checked="checked">
-									<u>I have read the terms of service</u>
-							</p>
-							<button class="btn btn-primary" type="submit">Submit</button>
+							<button class="btn btn-success btn-large" type="submit">Sign Up</button>
 						#{/form}
 					</div>
 				</div>

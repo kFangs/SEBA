@@ -1,8 +1,123 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>My profile page</title>
+
+<head data-gwd-animation-mode="quickMode">
+<title>My Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Google Web Designer 1.0.6.0428">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/profile.css'}">
 </head>
 <body>
+	<div id="ProfileWrapper">
+		<div id="header">
+			<div style="margin-left: 30px; margin-top: 10px;">
+				<img src="@{'/public/images/studycompanion_.gif'}" />
+			</div>	
+			<div style="margin-left: 465px;margin-top:-56px;">
+  				<i class="icon-zoom-in"></i>
+        		<input data-provide="typeahead" data-items="4"  type="text" 
+           			class="span2 search-query">
+        		<button class="btn">Search</button>
+        		<a style="margin-left: 150px;" href="@{Profile.editProfile()}">Edit Profile</a>
+    		</div>
+    		<div style="margin-left: 1000px; margin-top: -43px;">
+    			<img u="image" src="@{'/public/images/studycompanion_.gif'}" />
+    		</div>
+    		<div style="margin-left: 1100px; margin-top: -65px;">
+    			<font style="font-family:sans-serif;font-size: medium; font-style: italic; ">
+    				Welcome,
+    			</font>
+    			<br />
+    			<font style="font-family:sans-serif;font-size: medium; color: blue; ">
+    				${profileUser?.getFirstName()} ${profileUser?.getLastName()}
+    			</font>
+    		</div>
+    		<div style="margin-left: 1130px;">
+    			<a href="@{Application.logout()}" style="color: maroon;">Log Out</a>
+    		</div>
+		</div>
+		<hr style="height:0.5em;border:1px solid blue;background-color: blue; margin-left: 10px;margin-right: 10px;">
+		<div id ="ProfileContainer">
+			<div id="column-one">
+			
+			<ul class="nav nav-pills nav-stacked span2">
+				<li><a href="@{Application.index()}">Home</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="@{Groups.index()}">Groups</a></li>
+				<li><a href="@{Search.index()}">Search</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>				
+
+			</div>
+			<div id="column-two">
+				<div id="My-profile">
+					<h3>My Profile</h3>
+					<img src="@{'/public/images/studyCompanion.gif'}" />
+					<div>
+						Name          : ${profileUser?.getFirstName()} ${profileUser?.getLastName()}
+						<br />
+						University    : ${profileUser?.getUniversity()}
+						<br />
+						Study Program : ${profileUser?.getStudyProgram()}
+						<br />
+						Semester      : ${profileUser?.getSemester()}
+						<br />
+						Lives in      : ${profileUser?.getCity()}
+					</div>
+				</div>
+				<div id="description">Description
+					<textarea  style="text-align: left;width: 250px; height: 123px;">
+						${profileUser?.getDetails()}
+					</textarea>
+				</div>
+			</div>
+			<div id="column-three">
+            	<div id="skills"> 
+					<h3>My Skills</h3>
+					#{list items: skills, as:'skill'}
+						<div id="mySkills">${skill}</div>
+						<br />
+					#{/list}
+				</div>
+		     	<div id="Help-Needed"> 
+				<h3>Help Needed</h3>
+					#{list items: helpRequired, as:'hRequired'}
+						<div id="helpNeeded">${hRequired}</div>
+						<br />
+					#{/list}
+				</div>
+				
+		   	 	<div id="Help-Offering"> 
+					<h3>Help Offering</h3>
+						#{list items: courses, as:'course'}
+							<div id="helpOffering">${course}</div>
+							<br />
+						#{/list}
+		   	 	</div>
+			</div>
+	
+			<div id="column-four">
+				<div id="courses"> 
+					<h3>Courses this Semester</h3>
+						#{list items: courses, as:'course'}
+							<div style="width: 200px;height: 25px;background-color: #D8D8D8; text-align: center;">${course}</div>
+							<br />
+						#{/list}
+				</div>
+				<div id="projects"> 
+					<h3>Ongoing Projects</h3>
+						#{list items: projects, as:'project'}
+							<div style="width: 200px;height: 25px;background-color: #D8D8D8; text-align: center;">${project}</div>
+							<br />
+						#{/list}
+				</div>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</div>
 	
 </body>
+
 </html>

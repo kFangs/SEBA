@@ -1,0 +1,186 @@
+#header {
+	height: 100px;
+}
+
+#ProfileWrapper {
+	
+}
+
+#ProfileContainer {
+	
+}
+
+#column-one {
+	width: 250px;
+	float: left;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+#column-two {
+	width: 300px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#column-two #My-profile {
+	
+}
+
+#column-two #description {
+	margin-top: 20px;
+}
+
+#column-three {
+	width: 300px;
+	text-align: center; float : left;
+	margin-left: 10px;
+	margin-right: 10px;
+	float: left;
+}
+
+#column-three #skills {
+	text-align: center;
+}
+
+#column-three #Help-Needed {
+	margin-top: 20px;
+}
+
+#column-three #Help-Offering {
+	margin-top: 10px;
+}
+
+#column-four {
+	width: 300px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#column-four #courses {
+	
+}
+
+#column-four #projects {
+	margin-top: 20px;
+}
+
+#column-three #mySkills {
+	width: 200px;
+	height: 25px;
+	background-color: #58FAF4; 
+	text-align: center;
+	margin-left:80px;
+}
+
+#column-three #helpNeeded {
+	width: 200px;
+	height: 25px;
+	background-color: #F2F2F2; 
+	text-align: center;
+	margin-left:80px;
+}
+
+#column-three #helpOffering {
+	width: 200px;
+	height: 25px;
+	background-color: #CEF6EC; 
+	text-align: center;
+	margin-left:80px;
+}
+
+#tabs {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tabs li {
+  float: left;
+  margin: 0 .5em 0 0;
+}
+
+#tabs a {
+  position: relative;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);  
+  padding: .7em 3.5em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 5px 0 0 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after {
+  background: #fff;
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+#tabs a::after {
+  content:'';
+  position:absolute;
+  z-index: 1;
+  top: 0;
+  right: -.5em;  
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  background-image: linear-gradient(to bottom, #fff, #ddd);  
+  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  transform: skew(10deg);
+  border-radius: 0 5px 0 0;  
+}
+
+#tabs #current a,
+#tabs #current a::after {
+  background: #fff;
+  z-index: 3;
+}
+
+#content {
+  background: #FAF7F5;
+  padding: 2em;
+  height: 380px;
+  position: relative;
+  z-index: 2; 
+  border-radius: 0 5px 5px 5px;
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+}
+
+#profileContent {
+  background: #FAF7F5;
+  padding: 2em;
+  height: 1190px;
+  position: relative;
+  z-index: 2; 
+  border-radius: 0 5px 5px 5px;
+  box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+  margin-bottom: 20px;
+  width:530px;
+}
+
+#labelMessage {
+	font-family: cursive;
+	font-style: italic;
+	font-size: small;
+	color:#8D8196;
+}
+#groupsFont {
+	font-family: cursive;
+	font-style: italic;
+	font-size: medium;
+	color:#8D8196;
+	font-weight: bold;
+}

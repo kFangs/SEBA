@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import net.sf.oval.constraint.MinSize;
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.*;
@@ -36,17 +37,11 @@ public class RegisterUser extends Model {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "activationKey")
-	private String activationKey;
-
-	@Column(name = "activated")
-	private int activated;
-
-	@Column(name = "studies")
-	private String studies;
-
-	@Column(name = "language")
-	private String language;
+	@Column(name = "sex")
+	private String sex;
+	
+	@Column(name = "dateOfBirth")
+	private String dateOfBirth;
 
 	/**
 	 * @param firstName
@@ -56,16 +51,16 @@ public class RegisterUser extends Model {
 	 * @param activated
 	 */
 	public RegisterUser(String firstName, String lastName, String email,
-			String password, String repeatPassword, String activationKey,
-			int activated) {
+			String password, String repeatPassword, String sex,
+			String dateOfBirth) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.repeatPassword = password;
 		this.email = email;
-		this.activationKey = activationKey;
-		this.activated = activated;
+		this.sex = sex;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public static RegisterUser findByEmail(String email) {
@@ -133,36 +128,6 @@ public class RegisterUser extends Model {
 	}
 
 	/**
-	 * @return the studies
-	 */
-	public String getStudies() {
-		return studies;
-	}
-
-	/**
-	 * @param studies
-	 *            the studies to set
-	 */
-	public void setStudies(String studies) {
-		this.studies = studies;
-	}
-
-	/**
-	 * @return the language
-	 */
-	public String getLanguage() {
-		return language;
-	}
-
-	/**
-	 * @param language
-	 *            the language to set
-	 */
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-
-	/**
 	 * @return the email
 	 */
 	public String getEmail() {
@@ -180,30 +145,29 @@ public class RegisterUser extends Model {
 	/**
 	 * @return the activationKey
 	 */
-	public String getActivationKey() {
-		return activationKey;
+	public String getSex() {
+		return sex;
 	}
 
 	/**
 	 * @param activationKey
 	 *            the activationKey to set
 	 */
-	public void setActivationKey(String activationKey) {
-		this.activationKey = activationKey;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	/**
-	 * @return the activated
+	 * @return the dateOfBirth
 	 */
-	public int getActivated() {
-		return activated;
+	public String getDateOfBirth() {
+		return dateOfBirth;
 	}
 
 	/**
-	 * @param activated
-	 *            the activated to set
+	 * @param dateOfBirth the dateOfBirth to set
 	 */
-	public void setActivated(int activated) {
-		this.activated = activated;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 }
